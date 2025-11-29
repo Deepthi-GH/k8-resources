@@ -11,6 +11,4 @@ spec:
     - protocol: TCP
       port: 80 #service port
       targetPort: 80 #container port
-  containers:
-  - name: nginx
-    image: nginx
+
