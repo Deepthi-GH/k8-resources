@@ -8,8 +8,9 @@ metadata:
     component: frontend
     environment: dev
     purpose: node-port
-  spec:
+spec:
     containers: 
     - name: nginx
       iamge: nginx 
+  
       
