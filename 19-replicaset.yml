@@ -23,5 +23,6 @@ spec:
     spec:    
       containers:
       - name: nginx
+      # replica set does not respect image changes.
         image: nginx:trixie-perl
 
