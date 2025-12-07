@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx
-  # These are replica set labels.
+  # These are deployment set labels.
   labels:
     purpose: dp-demo
     project: roboshop
@@ -31,6 +31,22 @@ kind: Service
 metadata:
   name: nginx
 spec:
+  selector:
+    purpose: headless-svc-demo
+    project: roboshop
+  ports:
+    - protocol: TCP
+      port: 80 #service port
+      targetPort: 80 #container port
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+spec:
+  # if a service has cluster ip as none then it is a headless service.
+  clusterIP: None 
   selector:
     purpose: headless-svc-demo
     project: roboshop
